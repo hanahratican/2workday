@@ -9,7 +9,7 @@ $(document).ready(function () {
   // let currentHour = moment().format('H');
 
   $(".time-block").each(function () {
-    var timeBlock = $(this).attr("id").split("-")[1];
+    var timeBlock = parseInt($(this).attr("id").split("-")[1]);
 
     if (currentHour == timeBlock) {
       $(this).addClass("present");
