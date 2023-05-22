@@ -1,7 +1,8 @@
 $(document).ready(function () {
   var today = dayjs();
   $("#current-day").text(today.format("dddd, MMMM D, YYYY, h:mm A"));
-  var currentHour = dayjs().format("H");
+  var currentHour = dayjs().hour();
+
   // let nowMoment = moment().format('MMMM Do YYYY');
   // let displayMoment = document.getElementById('currentDay');
   // displayMoment.innerHTML = nowMoment;
