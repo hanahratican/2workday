@@ -1,20 +1,12 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 $(document).ready(function () {
-    let nowMoment = moment().format('MMMM Do YYYY, h:mm:ss a');
-    let displayMoment = document.getElementById('currentDay');
-    displayMoment.innerHTML = nowMoment;
-    console.log(nowMoment);
-    let currentHour = moment().format('H');
-  
-  
-    $("#clearFieldsBtn").click(function (event) {
-      event.preventDefault;
-      $("textarea").val("");
-      localStorage.clear();
-    }); 
-  
+    var today = dayjs();
+    $("#currentDay").text(today.format("dddd, MMMM D, YYYY"));
+    var currentHour = dayjs().format('H');
+    // let nowMoment = moment().format('MMMM Do YYYY');
+    // let displayMoment = document.getElementById('currentDay');
+    // displayMoment.innerHTML = nowMoment;
+    // console.log(nowMoment);
+    // let currentHour = moment().format('H');
     
     $(".time-block").each(function () {
   
@@ -36,8 +28,8 @@ $(document).ready(function () {
   
   
   
-  $(".saveBtn").click( function() {
-    Event.preventDefault();
+  $(".saveBtn").click(function() {
+    event.preventDefault();
     var timeBlock = $(this).attr("id").split("-")[1];
     var textArea = $(this).siblings(".description").val();
     localStorage.setItem(timeBlock, textArea);
@@ -54,10 +46,5 @@ $(document).ready(function () {
   $("#hour-16 .time-block").val(localStorage.getItem("16"));
   $("#hour-17 .time-block").val(localStorage.getItem("17"));
   
-    // TODO: Add code to get any user input that was saved in localStorage and set
-    // the values of the corresponding textarea elements. HINT: How can the id
-    // attribute of each time-block be used to do this?
-    //
-    // TODO: Add code to display the current date in the header of the page.
   });
   
